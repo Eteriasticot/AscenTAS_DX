@@ -1,15 +1,14 @@
 import pydirectinput as pdi
 import pygetwindow as gw
 import time
-import os
-from win32com.shell import shell, shellcon
 
 inputCodes = {'u':'up', 'd':'down', 'r':'right', 'l':'left', 'j' : ' ', 'f' : 'x', 'e' : 'enter'}
 inputStates = {'u':False, 'd':False, 'r':False, 'l':False}
 
-
 FileName = 'inputs.txt' #default 'inputs.txt', change that to your txt file and make sure the file is in the same directory
 
+### Settings (not a lot for now)
+quitRunAtStart = True
 
 def timeToSec(t:str) -> float:
     times:list = t.split(':')
@@ -21,12 +20,11 @@ def timeToSec(t:str) -> float:
         return time
     else:
         return "temps invalide"
-    
+
 def openAscentDX():
     ascent_window = gw.getWindowsWithTitle("Ascent DX")[0]
     ascent_window.minimize()
     ascent_window.maximize()
-    
 
 def read_inputs(file:str)-> list:
     f = open(file, 'r')
@@ -39,6 +37,7 @@ def read_inputs(file:str)-> list:
     for x in lines: 
         input = x.strip().split(' ')
         input[1] = timeToSec(input[1])
+        input[0] = input[0].lower()
         inputs.append(input)
     return inputs
 
@@ -65,6 +64,12 @@ def resetRun():
     time.sleep(1)
     pdi.keyUp('enter')
 
+def quitRun():
+    pdi.press('esc')
+    pdi.press('down')
+    pdi.press('down')
+    pdi.press('enter')
+
 def input_read(inp:str):
     if inp in ['u', 'd', 'r', 'l']:
         if inputStates[inp]:
@@ -81,11 +86,13 @@ def playInputs(inputs:list):
         time.sleep(t)
         input_read(inp)
 
-
 if __name__ == '__main__':
-    openAscentDX()
-    resetRun()
-    
     inputs = read_inputs(FileName)
     inputs = timeToDiff_inputs(inputs)
+    
+    openAscentDX()
+    if quitRunAtStart:
+        quitRun()
+    resetRun()
+    
     playInputs(inputs)
