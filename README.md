@@ -1,3 +1,4 @@
+# I AM AN IDIOT THE TIMINGS ARE NOT PRECISE. CURRENTLY FIXING THAT MISTAKE.
 # AscenTAS_DX
 A very simplistic and basic TAS tool for the game Ascent DX.
 
