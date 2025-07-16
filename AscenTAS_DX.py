@@ -8,7 +8,7 @@ inputStates = {'u':False, 'd':False, 'r':False, 'l':False}
 FileName = 'inputs.txt' #default 'inputs.txt', change that to your txt file and make sure the file is in the same directory
 
 ### Settings (not a lot for now)
-quitRunAtStart = True
+quitRunAtStart = False
 
 def timeToSec(t:str) -> float:
     times:list = t.split(':')
