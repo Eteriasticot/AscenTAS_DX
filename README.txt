@@ -4,7 +4,7 @@ First, you need to install python and the right libraries.
 You can just go to https://www.python.org and download the last version.
 
 2. Installing the libraries
-You can simply open a terminal if you're on windows or linux and type 'pip install pywin32', 'pip install pygetwindow', 'pip install pyautogui' and 'pip install pydirectinput'.
+You can simply open a terminal if you're on windows or linux and type 'pip install pygetwindow', 'pip install pyautogui' and 'pip install pydirectinput'.
 
 3. Making your TAS
 You can now write down the inputs you want to be played in the inputs.txt file. 'u' corresponds to 'arrow up', 'd' to 'arrow down', 'l' to 'arrow left', 'r' to 'arrow right', 'j' corresponds to jump or dive, 'f' corresponds to dash and 'e' to 'enter'.

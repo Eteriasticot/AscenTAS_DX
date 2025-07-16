@@ -4,7 +4,7 @@ Premièrement, vous devez installer python et les librairies nécessaires.
 Vous pouvez juste aller sur https://www.python.org et installer la dernière version.
 
 2. Installer les librairies
-Il suffit d'ouvrir un terminal de commande et taper les commandes 'pip install pywin32', 'pip install pygetwindow', 'pip install pyautogui' et 'pip install pydirectinput'.
+Il suffit d'ouvrir un terminal de commande et taper les commandes 'pip install pygetwindow', 'pip install pyautogui' et 'pip install pydirectinput'.
 
 3. Faire votre TAS
 Vous pouvez maintenant écrire dans le fichier inputs.txt. 'u' correspond à 'flèche haut', 'd' à 'flèche bas', 'l' à 'flèche gauche', 'r' à 'flèche droite', 'j' au saut ou dive, 'f' au dash et 'e' à 'entrée'.
