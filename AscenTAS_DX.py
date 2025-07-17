@@ -9,7 +9,7 @@ inputStates = {'u':False, 'd':False, 'r':False, 'l':False}
 FileName = 'inputs.txt' #default 'inputs.txt', change that to your txt file and make sure the file is in the same directory
 
 ### Settings (not a lot for now)
-quitRunAtStart = False
+quitRunAtStart = True
 
 def timeToSec(t:str) -> float:
     times:list = t.split(':')
@@ -79,22 +79,21 @@ def input_read(inp:str):
             pdi.keyDown(inputCodes[inp])
         inputStates[inp] = not(inputStates[inp])
     else:
-        pdi.keyDown(inputCodes[inp])
-        pdi.keyUp(inputCodes[inp])
+        pdi.press(inputCodes[inp])
 
 def playInputs(inputs:list):
     for inp, t in inputs:
         time.sleep(t)
-        threading.Thread(target=input_read, args=(inp)).start()
+        threading.Thread(target=input_read, args=[inp]).start()
 
 if __name__ == '__main__':
     inputs = read_inputs(FileName)
     inputs = timeToDiff_inputs(inputs)
     
     openAscentDX()
-    #if quitRunAtStart:
-    #    quitRun()
-    #resetRun()
+    if quitRunAtStart:
+        quitRun()
+    resetRun()
+    time.sleep(0.2)
     
-    #playInputs(inputs)
-    
+    playInputs(inputs)
