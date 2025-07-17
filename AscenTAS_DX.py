@@ -1,6 +1,7 @@
 import pydirectinput as pdi
 import pygetwindow as gw
 import time
+import threading
 
 inputCodes = {'u':'up', 'd':'down', 'r':'right', 'l':'left', 'j' : ' ', 'f' : 'x', 'e' : 'enter'}
 inputStates = {'u':False, 'd':False, 'r':False, 'l':False}
@@ -84,15 +85,16 @@ def input_read(inp:str):
 def playInputs(inputs:list):
     for inp, t in inputs:
         time.sleep(t)
-        input_read(inp)
+        threading.Thread(target=input_read, args=(inp)).start()
 
 if __name__ == '__main__':
     inputs = read_inputs(FileName)
     inputs = timeToDiff_inputs(inputs)
     
     openAscentDX()
-    if quitRunAtStart:
-        quitRun()
-    resetRun()
+    #if quitRunAtStart:
+    #    quitRun()
+    #resetRun()
     
-    playInputs(inputs)
+    #playInputs(inputs)
+    
